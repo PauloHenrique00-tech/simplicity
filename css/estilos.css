@@ -1,4 +1,8 @@
-*, *::after, *::before { box-sizing: border-box; }
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
 
 /* Declaração de variáveis para a paleta de cores */
 :root {
@@ -10,31 +14,43 @@
 }
 
 /* Reset em alguns elementos usados neste projeto */
-body, .h1, h2, p, figure, .links-menu {
+body,
+.h1,
+h2,
+p,
+figure,
+.links-menu {
     margin: 0;
     padding: 0;
-    list-style: none; /* removendo marcadores da lista ul */
+    list-style: none;
+    /* removendo marcadores da lista ul */
 }
 
 /* Importante para uso da medida relativa REM */
-html { font-size: 16px; }
+html {
+    font-size: 16px;
+}
 
 body {
     font-family: "Noto Sans", sans-serif;
     color: var(--cor-texto);
 }
 
-img { max-width: 100% ; }
+img {
+    max-width: 100%;
+}
 
-a { text-decoration: none; }
+a {
+    text-decoration: none;
+}
 
 .titulo {
     font-family: Raleway, sans-serif;
     text-transform: uppercase;
     font-weight: 800;
     font-size: 1.5rem;
-    
-/* Formatando o link dentro do h1 */
+
+    /* Formatando o link dentro do h1 */
     a {
         background-color: var(--cor-escura);
         color: var(--cor-clara);
@@ -44,10 +60,25 @@ a { text-decoration: none; }
 }
 
 .topo {
-    height: 12vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: var(--cor-clara);
+
+
+    /* Classe .limitador específica para uso no cabeçalho/topo: além das configurações gerais (width e margin), AQUI ela também tem altura e ajustes do flex. */
+    .limitador {
+        height: 12vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* Classe .limitador de uso geral:
+Sempre terá largura de 95vw e margin auto não importando onde será aplicada. */
+.limitador {
+    width: 95vh;
+    margin: auto;
 }
 
 .titulo-menu a {
@@ -57,7 +88,8 @@ a { text-decoration: none; }
     display: inline-block;
 }
 
-.menu a:hover, .menu a:focus {
+.menu a:hover,
+.menu a:focus {
     background-color: var(--cor-intermediaria);
 }
 
@@ -65,7 +97,7 @@ a { text-decoration: none; }
 .links-menu {
 
     /* Atenção! Neste ponto fazemos com que os links do menu iniciem escondidos (display:none). Posteriomente com a ajuda do CSS combinado com o JS, faremos os comandos necessários para exibir/esconder de forma alternada. */
-    display: none; 
+    display: none;
 
     a {
         color: var(--cor-escura);
@@ -104,17 +136,20 @@ a { text-decoration: none; }
     /* flex-wrap:wrap 
     align-items: center */
 
-    h2, p {
+    h2,
+    p {
         text-align: center;
         color: var(--cor-clara);
 
         animation-name: animaDestaque;
         animation-duration: 5s;
-    }  
+    }
 
-    h2 { font-size: clamp(3rem, 10vw, 7rem); }
+    h2 {
+        font-size: clamp(3rem, 10vw, 7rem);
+    }
 
-    p { 
+    p {
         font-size: clamp(1.5rem, 3vw, 3rem);
         animation-delay: 5s;
 
@@ -129,15 +164,14 @@ a { text-decoration: none; }
         opacity: 0;
         transform: scale(0.3);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
     }
 }
 
-article h2 
-
-{
+article h2 {
     padding: 1rem;
     font-size: 1.4rem;
     font-family: Raleway, sans-serif;
@@ -145,7 +179,8 @@ article h2
 }
 
 article p {
-    padding: .5rem 0; /* Valor abaixo de zero, pode-se omitir o zero, mas pode ficar 0.5rem, sem problema  */
+    padding: .5rem 0;
+    /* Valor abaixo de zero, pode-se omitir o zero, mas pode ficar 0.5rem, sem problema  */
     font-size: 1.2rem;
 }
 
@@ -154,9 +189,45 @@ address {
     font-size: 1.2rem;
 }
 
-.front-end, .historia, .localizacao {
+.front-end,
+.historia,
+.localizacao {
     text-align: center;
 }
+
+.historia {
+    background-image: url(../imagens/fundo-madeira.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+
+    iframe {
+        width: 100%;
+        max-width: 700px;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        color: var(--cor-clara);
+        text-shadow: var(--cor-escura) 2px 2px 5px;
+    }
+}
+
+.localizacao iframe {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.rodape {
+    background-color: #000;
+    color: var(--cor-clara);
+    height: 30vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 
 /* Sobre a função clamp()
 Função útil para redimensionamento responsivo de acordo com critérios de tamanhos mínimo, ideal/variável/responsivo e máximo. Uso mais comum é para textos responsivos, mas pode ser usado com qualquer propriedade que envolva tamanhos (width, height etc).
