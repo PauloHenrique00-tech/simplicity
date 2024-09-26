@@ -107,11 +107,55 @@ a { text-decoration: none; }
     h2, p {
         text-align: center;
         color: var(--cor-clara);
+
+        animation-name: animaDestaque;
+        animation-duration: 5s;
     }  
 
     h2 { font-size: clamp(3rem, 10vw, 7rem); }
 
-    P { font-size: clamp(1.5rem, 3vw, 3rem); }
+    p { 
+        font-size: clamp(1.5rem, 3vw, 3rem);
+        animation-delay: 5s;
+
+        /* Antes da animação: o elemento assume o estilo do primeiro keyframe (ou seja, o from). Portanto assim, forçamos a iniciar com opacity zero e escala menor 30%.*/
+        animation-fill-mode: backwards;
+    }
+}
+
+/* 1) Criar a animação */
+@keyframes animaDestaque {
+    from {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+article h2 
+
+{
+    padding: 1rem;
+    font-size: 1.4rem;
+    font-family: Raleway, sans-serif;
+    color: var(--cor-titulo);
+}
+
+article p {
+    padding: .5rem 0; /* Valor abaixo de zero, pode-se omitir o zero, mas pode ficar 0.5rem, sem problema  */
+    font-size: 1.2rem;
+}
+
+address {
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+.front-end, .historia, .localizacao {
+    text-align: center;
 }
 
 /* Sobre a função clamp()
