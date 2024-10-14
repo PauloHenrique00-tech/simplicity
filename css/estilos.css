@@ -127,7 +127,7 @@ Sempre terá largura de 95vw e margin auto não importando onde será aplicada. 
 
 .destaque {
     height: 88vh;
-    background-image: url(/imagens/fundo-destaque.jpg);
+    background-image: url(../imagens/fundo-destaque.jpg);
     background-attachment: fixed;
     display: flex;
     justify-content: center;
@@ -304,14 +304,14 @@ tr:nth-child(odd) {
     /* Ajustamos o tamanho do menu (nav) como um todo */
     .menu {
         width: 60%;
-        background-color: yellow;
+        
     }
 }
 
 @media screen and (min-width: 1000px) {
     html { font-size: 18px; }
     .limitador { max-width: 1000px; 
-     background-color: yellow;
+     
     }
     
     
